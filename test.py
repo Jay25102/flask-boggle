@@ -21,3 +21,9 @@ class FlaskTests(TestCase):
             self.assertIn(b'<div>Highscore:', response.data)
             self.assertIn(b'<div>Time left:', response.data)
 
+    def test_checkword(self):
+        self.clientget("/")
+        response = self.client.gget("/check-word?word=alskdjfaldjfalskdf")
+        self.assertEqual(response.json['result'], "not-word")
+
+
