@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h2 id="score">Score: 0</h2>
+    <div id="nplays-display">Played: {{session["nplays"]}}</div>
+    <div id="highscore-display">Highscore: {{session["highscore"]}}</div>
+    <div id="timer-display">Time left: </div>
+    <!-- new gameboard -->
+    {% for row in session["board"] %}
+    <p>{{row}}</p>
+    {% endfor %}
+
+    <!-- form to submit a word -->
+    <form id="submit_word_form">
+        <input type="text" required placeholder="Enter a word" id="submit_word_input">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/boggle.js"></script>
+</body>
+</html>
